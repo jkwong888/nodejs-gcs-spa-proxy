@@ -9,7 +9,7 @@ const storage = new Storage();
 
 const GOOGLE_STORAGE_URL = 'storage.googleapis.com';
 const GOOGLE_STORAGE_PORT = 443;
-const GOOGLE_BUCKET_NAME = 'fruishop-spa';
+const GOOGLE_BUCKET_NAME = process.env.GCS_BUCKET_TO_PROXY;
 
 async function sendIndexHtml(res) {
   const bucket = storage.bucket(GOOGLE_BUCKET_NAME);
