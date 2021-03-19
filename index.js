@@ -87,9 +87,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', exports.gcsproxy);
-app.get('/*', exports.gcsproxy);
+app.get('*', exports.gcsproxy);
 
-app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`)
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Listening at http://0.0.0.0:${port}`)
 })
