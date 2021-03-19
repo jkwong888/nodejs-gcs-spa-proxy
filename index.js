@@ -16,15 +16,11 @@ async function sendIndexHtml(res) {
 
   const [bucketMetadata] = await bucket.getMetadata();
 
-  const index_html = bucket.file(bucketMetadata.website.mainPageSuffix); 
-
   https.get({
     hostname: GOOGLE_STORAGE_URL,
     port: GOOGLE_STORAGE_PORT,
     path: GOOGLE_BUCKET_NAME + '/' + bucketMetadata.website.mainPageSuffix,
   }, ((proxyresp) => {
-    //console.log(proxyresp);
-
     // always return 200
     res.status(200).set(proxyresp.headers)
 
